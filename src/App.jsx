@@ -2,7 +2,8 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
-import LoginPage from "./pages/Login"
+// import LoginPage from "./pages/Login"
+// import Sidebar from "./components/shop/Sidebar"
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -35,8 +36,28 @@ import LoginPage from "./pages/Login"
 
 // export default App
 
-export default function App() {
+// export default function App() {
+//   return (
+//     // <LoginPage/>
+//     <Sidebar/>
+//   )
+// }
+
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import RTL from "./layouts/rtl";
+import Admin from "./layouts/admin";
+import Auth from "./layouts/auth";
+const App = () => {
   return (
-    <LoginPage/>
-  )
-}
+    <Routes>
+      <Route path="auth/*" element={<Auth />} />
+      <Route path="admin/*" element={<Admin />} />
+      <Route path="rtl/*" element={<RTL />} />
+      <Route path="/" element={<Navigate to="/admin" replace />} />
+    </Routes>
+  );
+};
+
+export default App;
