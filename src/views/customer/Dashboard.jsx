@@ -11,7 +11,7 @@ export default function Dashboard() {
           items-center
           bg-white
           mx-auto
-          max-w-2xl
+          max-w-4xl
           rounded-lg
           my-16
           p-16

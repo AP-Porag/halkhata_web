@@ -1,7 +1,8 @@
 import React from 'react'
 
 export default function Navbar() {
-    const button = document.querySelector('#menu-button');
+
+const button = document.querySelector('#menu-button');
 const menu = document.querySelector('#menu');
 
 
@@ -21,9 +22,15 @@ button.addEventListener('click', () => {
           px-4
           text-lg text-gray-700
           bg-white
+          border
+          border-t-0
+          border-r-0
+          border-l-0
+          border-slate-200
+          
         "
       >
-       <div>
+       <div class=''>
           <a href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
