@@ -3,6 +3,7 @@
 // import viteLogo from '/vite.svg'
 // import './App.css'
 import LoginPage from "./pages/Login"
+import Home from "./pages/Home"
 
 // function App() {
 //   const [count, setCount] = useState(0)
@@ -37,6 +38,7 @@ import LoginPage from "./pages/Login"
 
 export default function App() {
   return (
-    <LoginPage/>
+    <Home/>
+    // <LoginPage/>
   )
 }
