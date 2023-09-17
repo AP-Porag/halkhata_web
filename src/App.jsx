@@ -25,7 +25,6 @@ export default function App() {
             <Route path="shop/:id" element={<ShopProfile title="Due" />} />
             <Route path="profile" element={<Profile title="Due" />} />
           </Route>
-
         </Routes>
       </div>
 
