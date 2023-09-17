@@ -1,11 +1,17 @@
 import React from 'react'
+import googlePlayStoreLogo from '../../assets/google-play.svg';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     return (
-        <div>
-            <footer className="fixed bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow text-center md:p-6 dark:bg-gray-800 dark:border-gray-600">
-                <span className="text-sm text-gray-500 text-center dark:text-gray-400">© {currentYear} <a href="#" className="hover:underline">Mad Brain</a>. All Rights Reserved.</span>
+        <div className="w-full bg-white">
+            <footer className="fixed flex justify-between bottom-0 w-full left-0 z-20 bg-white border-t border-gray-200 shadow text-center dark:bg-gray-800 dark:border-gray-600 px-5">
+                <span className="mt-7 text-sm text-gray-500 text-center dark:text-gray-400">© {currentYear} All Rights Reserved.</span>
+                <div className="flex">
+                    <span className="capitalize mt-7 mr-3 text-sm text-gray-500 text-center dark:text-gray-400">Download App </span>
+                    <a className="w-20" href="#"><img src={googlePlayStoreLogo} alt=""/></a>
+                </div>
+                <span className="capitalize mt-7 text-sm text-gray-500 text-center dark:text-gray-400">Developed by <a href="#" className="hover:underline text-blue-800 font-bold">Mad Brain</a></span>
             </footer>
         </div>
     )
