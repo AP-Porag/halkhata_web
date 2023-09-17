@@ -3,7 +3,10 @@ import React from 'react'
 export default function Dashboard() {
   return (
     <div>
-      <div className="px-4">
+      <div className="grid grid-cols-5 gap-4">
+        <div class="col-span-1 bg-slate-400">L</div>
+        <div class="col-span-3 bg-slate-600">
+        <div className="px-4">
       <div
         className="
           flex
@@ -24,7 +27,11 @@ export default function Dashboard() {
       >
         <h1 className="text-2xl font-medium">Advertise</h1>
       </div>
-    </div>
+      </div>
+        </div>
+        <div class="col-span-1 bg-slate-700">R</div>
+      </div>
+      
       <div className="px-4">
       <div
         className="
@@ -46,7 +53,7 @@ export default function Dashboard() {
       >
         <h1 className="text-2xl font-medium">Dashboard component</h1>
       </div>
-    </div>
+      </div>
     </div>
   )
 }
