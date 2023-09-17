@@ -1,124 +1,955 @@
 import React from 'react'
-
 export default function Navbar() {
+  const [open, setOpen] = React.useState(false);
+  const [flyer, setFlyer] = React.useState(false);
+  const [flyerTwo, setFlyerTwo] = React.useState(false);
 
-  function menuToggle(){
-    console.log('clicked');
-    const menu = document.querySelector('#menu');
-    menu.classList.toggle('hidden');
-  }
-  
   return (
-    <div>
-      <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white border border-t-0 border-r-0 border-l-0  border-slate-200">
-       <div className="">
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="150"
-              height="32.125"
-              viewBox="0 0 150 32.125"
-            >
-              <g
-                id="Group_330"
-                data-name="Group 330"
-                transform="translate(-251.1 457.654)"
-              >
-                <g
-                  id="Group_329"
-                  data-name="Group 329"
-                  transform="translate(251.1 -457.654)"
+      <>
+        {/* This example requires Tailwind CSS v2.0+ */}
+        <div className="relative bg-white">
+          <div className="max-w-full mx-auto px-4 sm:px-6">
+            <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+              <div className="flex justify-start lg:w-0 lg:flex-1">
+                <a href="#">
+                  <span className="sr-only">Workflow</span>
+                  <img
+                      className="h-8 w-auto sm:h-10"
+                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      alt=""
+                  />
+                </a>
+              </div>
+              <div className="-mr-2 -my-2 md:hidden">
+                <button
+                    type="button"
+                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    onClick={() => setOpen(!open)}
                 >
-                  <path
-                    id="Path_121"
-                    data-name="Path 121"
-                    d="M257.887-454.034a12.084,12.084,0,0,1,3.505-3.62,11.811,11.811,0,0,1,3.46,3.549,17.887,17.887,0,0,1,3.362,11.216c.73.589,1.482,1.154,2.2,1.754a3.969,3.969,0,0,1,1.266,3.659c-.347,1.672-.679,3.347-1.045,5.015a1.393,1.393,0,0,1-2.12.7c-1.178-.946-2.326-1.925-3.5-2.872a5.373,5.373,0,0,1-3.316,1.44,5.365,5.365,0,0,1-3.882-1.4c-.844.621-1.628,1.367-2.453,2.033a6.315,6.315,0,0,1-1.2.924,1.393,1.393,0,0,1-1.839-.9c-.377-1.631-.771-3.257-1.136-4.89a3.96,3.96,0,0,1,1.335-3.81c.641-.517,1.29-1.025,1.943-1.527.182-.092.091-.3.1-.46a17.915,17.915,0,0,1,3.326-10.806m1.156,5.049a2.748,2.748,0,0,0,.24,3.641,3.024,3.024,0,0,0,4.134.085,2.75,2.75,0,0,0,.729-3.021,2.924,2.924,0,0,0-2.454-1.825,2.984,2.984,0,0,0-2.65,1.119"
-                    transform="translate(-251.1 457.654)"
-                    fill="#764abc"
-                  />
-                  <path
-                    id="Path_122"
-                    data-name="Path 122"
-                    d="M260.3-419.746a.693.693,0,0,1,1.027-.557,6.628,6.628,0,0,0,5.77,0,.7.7,0,0,1,1.029.516q.008,1.532,0,3.064a.691.691,0,0,1-1.079.5c-.306-.26-.582-.552-.876-.825-.467.874-.905,1.76-1.375,2.631a.7.7,0,0,1-1.161.007c-.472-.873-.908-1.764-1.384-2.637-.29.275-.566.566-.873.825a.692.692,0,0,1-1.078-.506c-.008-1.007,0-2.015,0-3.022"
-                    transform="translate(-253.92 446.225)"
-                    fill="#764abc"
-                  />
-                  <path
-                    id="Path_123"
-                    data-name="Path 123"
-                    d="M265.28-441.9a1.4,1.4,0,0,0,1.432-1.376,1.4,1.4,0,0,0-1.432-1.377,1.4,1.4,0,0,0-1.431,1.377,1.4,1.4,0,0,0,1.431,1.376"
-                    transform="translate(-255.01 453.668)"
-                    fill="#764abc"
-                  />
-                  <path
-                    id="Path_124"
-                    data-name="Path 124"
-                    d="M288.561-448.233H290.8v15.127h9.357v2.036h-11.6Zm13.563,11.211a5.99,5.99,0,0,1,.546-2.557,6.4,6.4,0,0,1,1.479-2.037,6.769,6.769,0,0,1,4.751-1.818,6.592,6.592,0,0,1,4.666,1.733,5.891,5.891,0,0,1,1.891,4.521,5.9,5.9,0,0,1-2.024,4.544,6.767,6.767,0,0,1-4.751,1.807A6.582,6.582,0,0,1,304-432.549a5.832,5.832,0,0,1-1.879-4.472m2.3-.133a4.517,4.517,0,0,0,.339,1.757A4.36,4.36,0,0,0,305.7-434a4.381,4.381,0,0,0,3.2,1.235,4.1,4.1,0,0,0,3.03-1.235,4.107,4.107,0,0,0,1.224-3.043,4.325,4.325,0,0,0-1.273-3.188,4.335,4.335,0,0,0-3.2-1.26,4.074,4.074,0,0,0-3.03,1.249,4.213,4.213,0,0,0-1.224,3.091m16.677,1.078a2.077,2.077,0,0,0-.582,1.3.918.918,0,0,0,.413.849,3.845,3.845,0,0,0,1.1.413q.692.157,1.564.266t1.794.218q.909.121,1.782.315a6.957,6.957,0,0,1,1.575.509,2.345,2.345,0,0,1,1.516,2.158,4.306,4.306,0,0,1-1.9,3.563,6.821,6.821,0,0,1-4.157,1.321,7.745,7.745,0,0,1-3.806-.873,3.147,3.147,0,0,1-1.831-2.861,3.762,3.762,0,0,1,.9-2.315,5.143,5.143,0,0,1,.558-.606,2.3,2.3,0,0,1-1.758-2.17,4.315,4.315,0,0,1,1.6-3.321,3.385,3.385,0,0,1-.557-1.878,3.7,3.7,0,0,1,.424-1.806,4.118,4.118,0,0,1,1.152-1.321,5.62,5.62,0,0,1,3.5-1.115,5.436,5.436,0,0,1,3.466,1.115,4.661,4.661,0,0,1,2.5-1.043,6.619,6.619,0,0,1,.945-.072l-.1,1.879a6.307,6.307,0,0,0-2.218.569,3.709,3.709,0,0,1,.412,1.721,3.4,3.4,0,0,1-.436,1.7,4.025,4.025,0,0,1-1.14,1.31,5.554,5.554,0,0,1-3.405,1.091,5.887,5.887,0,0,1-3.309-.91m.582-4.253a2.143,2.143,0,0,0-.231,1.017,2.221,2.221,0,0,0,.231,1.031,2.275,2.275,0,0,0,.654.739,3.493,3.493,0,0,0,2.085.582,2.688,2.688,0,0,0,2.594-1.285,2.074,2.074,0,0,0,.231-1.006,2.135,2.135,0,0,0-.243-1.03,2.124,2.124,0,0,0-.642-.751,3.446,3.446,0,0,0-2.085-.594,2.682,2.682,0,0,0-2.594,1.3m.024,8.944a3.151,3.151,0,0,0-.837,2.194,1.783,1.783,0,0,0,1.2,1.611,4.619,4.619,0,0,0,1.975.473,7.943,7.943,0,0,0,1.6-.134,3.885,3.885,0,0,0,1.139-.4,1.942,1.942,0,0,0,1.176-1.769q0-1.079-2.085-1.443-.9-.157-2.194-.279t-1.975-.254m27.052-11.563a5.27,5.27,0,0,1-3.515,5.273l3.261,6.606H345.9l-2.945-5.976a16.725,16.725,0,0,1-2.509.182h-4.461v5.793h-2.241v-17.163h7.042a12.082,12.082,0,0,1,5.684,1.042,4.451,4.451,0,0,1,2.291,4.242m-8.012,4.048a8.338,8.338,0,0,0,4.024-.752,3.344,3.344,0,0,0,1.612-3.151q0-2.885-3.733-3.273a19.936,19.936,0,0,0-2.218-.121h-4.449v7.3Zm10.7,1.879a5.99,5.99,0,0,1,.546-2.557,6.4,6.4,0,0,1,1.479-2.037,6.77,6.77,0,0,1,4.751-1.818A6.591,6.591,0,0,1,362.9-441.7a5.894,5.894,0,0,1,1.891,4.521,5.9,5.9,0,0,1-2.024,4.544,6.767,6.767,0,0,1-4.751,1.807,6.582,6.582,0,0,1-4.678-1.721,5.831,5.831,0,0,1-1.879-4.472m2.3-.133a4.517,4.517,0,0,0,.34,1.757,4.37,4.37,0,0,0,.933,1.394,4.383,4.383,0,0,0,3.2,1.235,4.1,4.1,0,0,0,3.03-1.235,4.107,4.107,0,0,0,1.224-3.043,4.325,4.325,0,0,0-1.273-3.188,4.336,4.336,0,0,0-3.2-1.26,4.073,4.073,0,0,0-3.03,1.249,4.214,4.214,0,0,0-1.224,3.091m23.344,3.491.424,1.709a7.408,7.408,0,0,1-4.46,1.127,5.729,5.729,0,0,1-4.412-1.721,6.409,6.409,0,0,1-1.563-4.557,6.234,6.234,0,0,1,1.757-4.509,5.974,5.974,0,0,1,4.448-1.818,6.431,6.431,0,0,1,3.9,1.1l-.8,1.805a5.411,5.411,0,0,0-3.321-1.017,3.3,3.3,0,0,0-2.7,1.284,4.622,4.622,0,0,0-.982,3.006,4.82,4.82,0,0,0,1.03,3.175,3.638,3.638,0,0,0,2.969,1.309,8.3,8.3,0,0,0,3.708-.9m3.066-16.326h2.3v12.133l5.442-5.333h2.69l-5.7,5.575,3.394,3.66a3.824,3.824,0,0,0,2.569,1.249l-.352,1.636a3.724,3.724,0,0,1-2.981-.678,6.8,6.8,0,0,1-.691-.667l-4.375-4.728v6.073h-2.3Zm22.108,7.866a4.441,4.441,0,0,1,1.006,1.624,5.626,5.626,0,0,1,.376,2.049,15.688,15.688,0,0,1-.243,2.533h-8.436a4.022,4.022,0,0,0,1.188,2.315,3.741,3.741,0,0,0,2.606.836,10.169,10.169,0,0,0,4.133-.824l.388,1.733a8.96,8.96,0,0,1-3.564.958,15.618,15.618,0,0,1-1.672.073,6.288,6.288,0,0,1-2.158-.412,4.692,4.692,0,0,1-1.866-1.212,6.631,6.631,0,0,1-1.466-4.654,6.234,6.234,0,0,1,1.757-4.509,5.974,5.974,0,0,1,4.448-1.818,4.733,4.733,0,0,1,3.5,1.309m-.812,4.425.049-.655a2.885,2.885,0,0,0-1.66-2.945,3.332,3.332,0,0,0-1.334-.242,3.368,3.368,0,0,0-1.43.3,3.514,3.514,0,0,0-1.114.825,4.376,4.376,0,0,0-1.091,2.715Zm5.358-3.624h-1.3v-1.5l2.982-2.242h.618v1.879h3.466v1.866h-3.466v4.9a5.311,5.311,0,0,0,.521,2.812,2.747,2.747,0,0,0,2.036.91l-.351,1.636q-3.636.46-4.3-2.873a10.568,10.568,0,0,1-.206-2.144Z"
-                    transform="translate(-262.589 455.303)"
-                    fill="#764abc"
-                  />
-                </g>
-              </g>
-            </svg>
-          </a>
-        </div>
-       
-         <svg
-            xmlns="http://www.w3.org/2000/svg"
-            id="menu-button"
-            className="h-6 w-6 cursor-pointer md:hidden block"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            onClick={menuToggle}
+                  <span className="sr-only">Open menu</span>
+                  {/* Heroicon name: outline/menu */}
+                  <svg
+                      className="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                  >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <nav className="hidden md:flex space-x-10">
+                <div className="relative">
+                  {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
+                  <button
+                      type="button"
+                      className="
+                   group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 pb-8'
+                  "
+                      onClick={() => (setFlyer(!flyer), setFlyerTwo(false))}
+                  >
+                    <span>Solutions</span>
+                    {/*
+              Heroicon name: solid/chevron-down
+
+              Item active: "text-gray-600", Item inactive: "text-gray-400"
+            */}
+                    <svg
+                        className={
+                          flyer === true
+                              ? "transform rotate-180 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500 transition ease-out duration-200"
+                              : "transform rotate-0 transition ease-out duration-200 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        }
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                      <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  {/*
+            'Solutions' flyout menu, show/hide based on flyout menu state.
+
+            Entering: "transition ease-out duration-200"
+              From: "opacity-0 translate-y-1"
+              To: "opacity-100 translate-y-0"
+            Leaving: "transition ease-in duration-150"
+              From: "opacity-100 translate-y-0"
+              To: "opacity-0 translate-y-1"
+          */}
+
+                  <div
+                      onMouseLeave={() => setFlyer(false)}
+                      className={
+                        flyer
+                            ? " opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                            : " opacity-0 translate-y-1 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+                      }
+                  >
+                    <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <a
+                            href="#"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        >
+                          {/* Heroicon name: outline/chart-bar */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Analytics
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                              Get a better understanding of where your traffic is
+                              coming from.
+                            </p>
+                          </div>
+                        </a>
+                        <a
+                            href="#"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        >
+                          {/* Heroicon name: outline/cursor-click */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Engagement
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                              Speak directly to your customers in a more
+                              meaningful way.
+                            </p>
+                          </div>
+                        </a>
+                        <a
+                            href="#"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        >
+                          {/* Heroicon name: outline/shield-check */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Security
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                              Your customers data will be safe and secure.
+                            </p>
+                          </div>
+                        </a>
+                        <a
+                            href="#"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        >
+                          {/* Heroicon name: outline/view-grid */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Integrations
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                              Connect with third-party tools that you are already
+                              using.
+                            </p>
+                          </div>
+                        </a>
+                        <a
+                            href="#"
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                        >
+                          {/* Heroicon name: outline/refresh */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Automations
+                            </p>
+                            <p className="mt-1 text-sm text-gray-500">
+                              Build strategic funnels that will drive your
+                              customers to convert
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                      <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                        <div className="flow-root">
+                          <a
+                              href="#"
+                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                          >
+                            {/* Heroicon name: outline/play */}
+                            <svg
+                                className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                              <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                              />
+                              <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            <span className="ml-3">Watch Demo</span>
+                          </a>
+                        </div>
+                        <div className="flow-root">
+                          <a
+                              href="#"
+                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+                          >
+                            {/* Heroicon name: outline/phone */}
+                            <svg
+                                className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                              <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                              />
+                            </svg>
+                            <span className="ml-3">Contact Sales</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                    href="#"
+                    className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Pricing
+                </a>
+                <a
+                    href="#"
+                    className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Docs
+                </a>
+          {/*      <div className="relative">*/}
+          {/*        /!* Item active: "text-gray-900", Item inactive: "text-gray-500" *!/*/}
+          {/*        <button*/}
+          {/*            type="button"*/}
+          {/*            className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"*/}
+          {/*            onClick={() => (setFlyerTwo(!flyerTwo), setFlyer(false))}*/}
+          {/*        >*/}
+          {/*          <span>*/}
+          {/*            <img className="w-10 h-10 rounded-full"*/}
+          {/*                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"*/}
+          {/*                 alt=""/>*/}
+          {/*          </span>*/}
+          {/*          /!**/}
+          {/*    Heroicon name: solid/chevron-down*/}
+
+          {/*    Item active: "text-gray-600", Item inactive: "text-gray-400"*/}
+          {/*  *!/*/}
+          {/*          <svg*/}
+          {/*              className={*/}
+          {/*                flyerTwo === true*/}
+          {/*                    ? "transform rotate-180 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500 transition ease-out duration-200"*/}
+          {/*                    : "ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"*/}
+          {/*              }*/}
+          {/*              xmlns="http://www.w3.org/2000/svg"*/}
+          {/*              viewBox="0 0 20 20"*/}
+          {/*              fill="currentColor"*/}
+          {/*              aria-hidden="true"*/}
+          {/*          >*/}
+          {/*            <path*/}
+          {/*                fillRule="evenodd"*/}
+          {/*                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"*/}
+          {/*                clipRule="evenodd"*/}
+          {/*            />*/}
+          {/*          </svg>*/}
+          {/*        </button>*/}
+          {/*        /!**/}
+          {/*  'More' flyout menu, show/hide based on flyout menu state.*/}
+
+          {/*  Entering: "transition ease-out duration-200"*/}
+          {/*    From: "opacity-0 translate-y-1"*/}
+          {/*    To: "opacity-100 translate-y-0"*/}
+          {/*  Leaving: "transition ease-in duration-150"*/}
+          {/*    From: "opacity-100 translate-y-0"*/}
+          {/*    To: "opacity-0 translate-y-1"*/}
+          {/**!/{" "}*/}
+          {/*        <div*/}
+          {/*            onMouseLeave={() => setFlyerTwo(false)}*/}
+          {/*            className={*/}
+          {/*              flyerTwo*/}
+          {/*                  ? " opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"*/}
+          {/*                  : " opacity-0 translate-y-1 absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"*/}
+          {/*            }*/}
+          {/*        >*/}
+          {/*          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">*/}
+          {/*            <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">*/}
+          {/*              <a*/}
+          {/*                  href="#"*/}
+          {/*                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"*/}
+          {/*              >*/}
+          {/*                /!* Heroicon name: outline/support *!/*/}
+          {/*                <svg*/}
+          {/*                    className="flex-shrink-0 h-6 w-6 text-indigo-600"*/}
+          {/*                    xmlns="http://www.w3.org/2000/svg"*/}
+          {/*                    fill="none"*/}
+          {/*                    viewBox="0 0 24 24"*/}
+          {/*                    stroke="currentColor"*/}
+          {/*                    aria-hidden="true"*/}
+          {/*                >*/}
+          {/*                  <path*/}
+          {/*                      strokeLinecap="round"*/}
+          {/*                      strokeLinejoin="round"*/}
+          {/*                      strokeWidth={2}*/}
+          {/*                      d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"*/}
+          {/*                  />*/}
+          {/*                </svg>*/}
+          {/*                <div className="ml-4">*/}
+          {/*                  <p className="text-base font-medium text-gray-900">*/}
+          {/*                    Help Center*/}
+          {/*                  </p>*/}
+          {/*                  <p className="mt-1 text-sm text-gray-500">*/}
+          {/*                    Get all of your questions answered in our forums or*/}
+          {/*                    contact support.*/}
+          {/*                  </p>*/}
+          {/*                </div>*/}
+          {/*              </a>*/}
+          {/*              <a*/}
+          {/*                  href="#"*/}
+          {/*                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"*/}
+          {/*              >*/}
+          {/*                /!* Heroicon name: outline/bookmark-alt *!/*/}
+          {/*                <svg*/}
+          {/*                    className="flex-shrink-0 h-6 w-6 text-indigo-600"*/}
+          {/*                    xmlns="http://www.w3.org/2000/svg"*/}
+          {/*                    fill="none"*/}
+          {/*                    viewBox="0 0 24 24"*/}
+          {/*                    stroke="currentColor"*/}
+          {/*                    aria-hidden="true"*/}
+          {/*                >*/}
+          {/*                  <path*/}
+          {/*                      strokeLinecap="round"*/}
+          {/*                      strokeLinejoin="round"*/}
+          {/*                      strokeWidth={2}*/}
+          {/*                      d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"*/}
+          {/*                  />*/}
+          {/*                </svg>*/}
+          {/*                <div className="ml-4">*/}
+          {/*                  <p className="text-base font-medium text-gray-900">*/}
+          {/*                    Guides*/}
+          {/*                  </p>*/}
+          {/*                  <p className="mt-1 text-sm text-gray-500">*/}
+          {/*                    Learn how to maximize our platform to get the most*/}
+          {/*                    out of it.*/}
+          {/*                  </p>*/}
+          {/*                </div>*/}
+          {/*              </a>*/}
+          {/*              <a*/}
+          {/*                  href="#"*/}
+          {/*                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"*/}
+          {/*              >*/}
+          {/*                /!* Heroicon name: outline/calendar *!/*/}
+          {/*                <svg*/}
+          {/*                    className="flex-shrink-0 h-6 w-6 text-indigo-600"*/}
+          {/*                    xmlns="http://www.w3.org/2000/svg"*/}
+          {/*                    fill="none"*/}
+          {/*                    viewBox="0 0 24 24"*/}
+          {/*                    stroke="currentColor"*/}
+          {/*                    aria-hidden="true"*/}
+          {/*                >*/}
+          {/*                  <path*/}
+          {/*                      strokeLinecap="round"*/}
+          {/*                      strokeLinejoin="round"*/}
+          {/*                      strokeWidth={2}*/}
+          {/*                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"*/}
+          {/*                  />*/}
+          {/*                </svg>*/}
+          {/*                <div className="ml-4">*/}
+          {/*                  <p className="text-base font-medium text-gray-900">*/}
+          {/*                    Events*/}
+          {/*                  </p>*/}
+          {/*                  <p className="mt-1 text-sm text-gray-500">*/}
+          {/*                    See what meet-ups and other events we might be*/}
+          {/*                    planning near you.*/}
+          {/*                  </p>*/}
+          {/*                </div>*/}
+          {/*              </a>*/}
+          {/*              <a*/}
+          {/*                  href="#"*/}
+          {/*                  className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"*/}
+          {/*              >*/}
+          {/*                /!* Heroicon name: outline/shield-check *!/*/}
+          {/*                <svg*/}
+          {/*                    className="flex-shrink-0 h-6 w-6 text-indigo-600"*/}
+          {/*                    xmlns="http://www.w3.org/2000/svg"*/}
+          {/*                    fill="none"*/}
+          {/*                    viewBox="0 0 24 24"*/}
+          {/*                    stroke="currentColor"*/}
+          {/*                    aria-hidden="true"*/}
+          {/*                >*/}
+          {/*                  <path*/}
+          {/*                      strokeLinecap="round"*/}
+          {/*                      strokeLinejoin="round"*/}
+          {/*                      strokeWidth={2}*/}
+          {/*                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"*/}
+          {/*                  />*/}
+          {/*                </svg>*/}
+          {/*                <div className="ml-4">*/}
+          {/*                  <p className="text-base font-medium text-gray-900">*/}
+          {/*                    Security*/}
+          {/*                  </p>*/}
+          {/*                  <p className="mt-1 text-sm text-gray-500">*/}
+          {/*                    Understand how we take your privacy seriously.*/}
+          {/*                  </p>*/}
+          {/*                </div>*/}
+          {/*              </a>*/}
+          {/*            </div>*/}
+          {/*            /!*<div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">*!/*/}
+          {/*            /!*  <div>*!/*/}
+          {/*            /!*    <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">*!/*/}
+          {/*            /!*      Recent Posts*!/*/}
+          {/*            /!*    </h3>*!/*/}
+          {/*            /!*    <ul className="mt-4 space-y-4">*!/*/}
+          {/*            /!*      <li className="text-base truncate">*!/*/}
+          {/*            /!*        <a*!/*/}
+          {/*            /!*            href="#"*!/*/}
+          {/*            /!*            className="font-medium text-gray-900 hover:text-gray-700"*!/*/}
+          {/*            /!*        >*!/*/}
+          {/*            /!*          Boost your conversion rate*!/*/}
+          {/*            /!*        </a>*!/*/}
+          {/*            /!*      </li>*!/*/}
+          {/*            /!*      <li className="text-base truncate">*!/*/}
+          {/*            /!*        <a*!/*/}
+          {/*            /!*            href="#"*!/*/}
+          {/*            /!*            className="font-medium text-gray-900 hover:text-gray-700"*!/*/}
+          {/*            /!*        >*!/*/}
+          {/*            /!*          How to use search engine optimization to drive*!/*/}
+          {/*            /!*          traffic to your site*!/*/}
+          {/*            /!*        </a>*!/*/}
+          {/*            /!*      </li>*!/*/}
+          {/*            /!*      <li className="text-base truncate">*!/*/}
+          {/*            /!*        <a*!/*/}
+          {/*            /!*            href="#"*!/*/}
+          {/*            /!*            className="font-medium text-gray-900 hover:text-gray-700"*!/*/}
+          {/*            /!*        >*!/*/}
+          {/*            /!*          Improve your customer experience*!/*/}
+          {/*            /!*        </a>*!/*/}
+          {/*            /!*      </li>*!/*/}
+          {/*            /!*    </ul>*!/*/}
+          {/*            /!*  </div>*!/*/}
+          {/*            /!*  <div className="mt-5 text-sm">*!/*/}
+          {/*            /!*    <a*!/*/}
+          {/*            /!*        href="#"*!/*/}
+          {/*            /!*        className="font-medium text-indigo-600 hover:text-indigo-500"*!/*/}
+          {/*            /!*    >*!/*/}
+          {/*            /!*      {" "}*!/*/}
+          {/*            /!*      View all posts <span aria-hidden="true">→</span>*!/*/}
+          {/*            /!*    </a>*!/*/}
+          {/*            /!*  </div>*!/*/}
+          {/*            /!*</div>*!/*/}
+          {/*          </div>*/}
+          {/*        </div>*/}
+          {/*      </div>*/}
+              </nav>
+              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <div className="relative">
+                  {/* Item active: "text-gray-900", Item inactive: "text-gray-500" */}
+                  <button
+                      type="button"
+                      className="group bg-white rounded-md text-gray-500 inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-0"
+                      onClick={() => (setFlyerTwo(!flyerTwo), setFlyer(false))}
+                  >
+                    <span>
+                      <img className="w-10 h-10 rounded-full"
+                           src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                           alt=""/>
+                    </span>
+                    {/*
+              Heroicon name: solid/chevron-down
+
+              Item active: "text-gray-600", Item inactive: "text-gray-400"
+            */}
+                    <svg
+                        className={
+                          flyerTwo === true
+                              ? "transform rotate-180 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500 transition ease-out duration-200"
+                              : "ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                        }
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                    >
+                      <path
+                          fillRule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                  {/*
+            'More' flyout menu, show/hide based on flyout menu state.
+
+            Entering: "transition ease-out duration-200"
+              From: "opacity-0 translate-y-1"
+              To: "opacity-100 translate-y-0"
+            Leaving: "transition ease-in duration-150"
+              From: "opacity-100 translate-y-0"
+              To: "opacity-0 translate-y-1"
+          */}{" "}
+                  <div
+                      onMouseLeave={() => setFlyerTwo(false)}
+                      className={
+                        flyerTwo
+                            ? "w-48 opacity-100 translate-y-0 transition ease-out duration-200 absolute z-10 mt-3 transform sm:px-0 lg:-translate-x-1/2"
+                            : "w-48 opacity-0 translate-y-1 absolute z-10 mt-3 transform sm:px-0 lg:-translate-x-1/2"
+                      }
+                  >
+                    <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                      <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                        <span
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
+                        >
+                          {/* Heroicon name: outline/support */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Your Profile
+                            </p>
+                          </div>
+                        </span>
+
+                        <span
+                            className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer"
+                        >
+                          {/* Heroicon name: outline/support */}
+                          <svg
+                              className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                          >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                            />
+                          </svg>
+                          <div className="ml-4">
+                            <p className="text-base font-medium text-gray-900">
+                              Logout
+                            </p>
+                          </div>
+                        </span>
+
+                      </div>
+                      {/*<div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">*/}
+                      {/*  <div>*/}
+                      {/*    <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">*/}
+                      {/*      Recent Posts*/}
+                      {/*    </h3>*/}
+                      {/*    <ul className="mt-4 space-y-4">*/}
+                      {/*      <li className="text-base truncate">*/}
+                      {/*        <a*/}
+                      {/*            href="#"*/}
+                      {/*            className="font-medium text-gray-900 hover:text-gray-700"*/}
+                      {/*        >*/}
+                      {/*          Boost your conversion rate*/}
+                      {/*        </a>*/}
+                      {/*      </li>*/}
+                      {/*      <li className="text-base truncate">*/}
+                      {/*        <a*/}
+                      {/*            href="#"*/}
+                      {/*            className="font-medium text-gray-900 hover:text-gray-700"*/}
+                      {/*        >*/}
+                      {/*          How to use search engine optimization to drive*/}
+                      {/*          traffic to your site*/}
+                      {/*        </a>*/}
+                      {/*      </li>*/}
+                      {/*      <li className="text-base truncate">*/}
+                      {/*        <a*/}
+                      {/*            href="#"*/}
+                      {/*            className="font-medium text-gray-900 hover:text-gray-700"*/}
+                      {/*        >*/}
+                      {/*          Improve your customer experience*/}
+                      {/*        </a>*/}
+                      {/*      </li>*/}
+                      {/*    </ul>*/}
+                      {/*  </div>*/}
+                      {/*  <div className="mt-5 text-sm">*/}
+                      {/*    <a*/}
+                      {/*        href="#"*/}
+                      {/*        className="font-medium text-indigo-600 hover:text-indigo-500"*/}
+                      {/*    >*/}
+                      {/*      {" "}*/}
+                      {/*      View all posts <span aria-hidden="true">→</span>*/}
+                      {/*    </a>*/}
+                      {/*  </div>*/}
+                      {/*</div>*/}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/*
+    Mobile menu, show/hide based on mobile menu state.
+
+    Entering: "duration-200 ease-out"
+      From: ""
+      To: ""
+    Leaving: "duration-100 ease-in"
+      From: "opacity-100 scale-100"
+      To: "opacity-0 scale-95"
+  */}
+
+          <div
+              className={
+                open
+                    ? "opacity-100 scale-100 transition ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                    : "opacity-0 scale-95 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              }
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-       
-       <div className="hidden w-full md:flex md:items-center md:w-auto" id="menu">
-          <ul
-            className="
-              pt-4
-              text-base text-gray-700
-              md:flex
-              md:justify-between 
-              md:pt-0"
-          >
-            <li>
-              <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                >Features</a
-              >
-            </li>
-            <li>
-              <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                >Pricing</a
-              >
-            </li>
-            <li>
-              <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                >Customers</a
-              >
-            </li>
-            <li>
-              <a className="md:p-4 py-2 block hover:text-purple-400" href="#"
-                >Blog</a
-              >
-            </li>
-            <li>
-              <a
-                className="md:p-4 py-2 block hover:text-purple-400 text-purple-500"
-                href="#"
-                >Sign Up</a
-              >
-            </li>
-          </ul>
+            <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+              <div className="pt-5 pb-6 px-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <img
+                        className="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                        alt="Workflow"
+                    />
+                  </div>
+                  <div className="-mr-2">
+                    <button
+                        type="button"
+                        className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                        onClick={() => setOpen(!open)}
+                    >
+                      <span className="sr-only">Close menu</span>
+                      {/* Heroicon name: outline/x */}
+                      <svg
+                          className="h-6 w-6"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <nav className="grid gap-y-8">
+                    <a
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                    >
+                      {/* Heroicon name: outline/chart-bar */}
+                      <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                        />
+                      </svg>
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                      Analytics
+                    </span>
+                    </a>
+                    <a
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                    >
+                      {/* Heroicon name: outline/cursor-click */}
+                      <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
+                        />
+                      </svg>
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                      Engagement
+                    </span>
+                    </a>
+                    <a
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                    >
+                      {/* Heroicon name: outline/shield-check */}
+                      <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                      Security
+                    </span>
+                    </a>
+                    <a
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                    >
+                      {/* Heroicon name: outline/view-grid */}
+                      <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                        />
+                      </svg>
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                      Integrations
+                    </span>
+                    </a>
+                    <a
+                        href="#"
+                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                    >
+                      {/* Heroicon name: outline/refresh */}
+                      <svg
+                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                      >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                        />
+                      </svg>
+                      <span className="ml-3 text-base font-medium text-gray-900">
+                      Automations
+                    </span>
+                    </a>
+                  </nav>
+                </div>
+              </div>
+              <div className="py-6 px-5 space-y-6">
+                <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Pricing
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Docs
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Enterprise
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Blog
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Help Center
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Guides
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Security
+                  </a>
+                  <a
+                      href="#"
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                  >
+                    Events
+                  </a>
+                </div>
+                <div>
+                  <a
+                      href="#"
+                      className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  >
+                    Sign up
+                  </a>
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                    Existing customer?
+                    <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                      Sign in
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
-    </div>
+      </>
   );
 }
