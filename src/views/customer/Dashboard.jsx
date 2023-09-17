@@ -1,4 +1,3 @@
-import React from 'react'
 import Breadcrumb from "../../components/common/Breadcrumb.jsx";
 
 export default function Dashboard() {
@@ -27,6 +26,7 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
+          {/*Main Content start*/}
         <div className="col-span-5 md:col-span-3">
             <div className="px-4 py-8">
                 <Breadcrumb/>
@@ -50,6 +50,7 @@ export default function Dashboard() {
                         <h1 className="text-2xl font-medium text-white">Advertise</h1>
                     </div>
                 </div>
+                {/*Main Content One start*/}
                 <div className="">
                     <div className="
                 shadow
@@ -68,6 +69,7 @@ export default function Dashboard() {
                         <h1 className="text-2xl font-medium">Dashboard view</h1>
                     </div>
                 </div>
+                {/*Main Content One end*/}
                 <div className="block sm:hidden">
                     <div className="flex
                 shadow
@@ -91,6 +93,7 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
+          {/*Main Content end*/}
         <div className="col-span-1 hidden md:block">
             <div className="px-4">
                 <div className="flex

@@ -1,44 +1,33 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-import LoginPage from "./pages/Login"
-import Home from "./pages/Home"
+import {Route, Routes} from 'react-router-dom'
+import Login from "./pages/Login"
+import PublicOutlet from "./components/common/PublicOutlet.jsx";
+import Home from "./pages/Home.jsx";
+import Due from "./views/customer/Due.jsx";
+import Dashboard from "./views/customer/Dashboard.jsx";
+import Payment from "./views/customer/Payment.jsx";
+import Shops from "./views/customer/Shops.jsx";
+import Profile from "./views/customer/Profile.jsx";
+import ShopProfile from "./views/customer/ShopProfile.jsx";
 
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vitejs.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
 
 export default function App() {
   return (
-    <Home/>
-    // <LoginPage/>
+      <div>
+        <Routes>
+          <Route path="/" element={<PublicOutlet/>}>
+            <Route path="/login" element={<Login/>}/>
+          </Route>
+          <Route path="/*" element={<Home />}>
+            <Route path="home" element={<Dashboard title="Home" />} />
+            <Route path="due" element={<Due title="Due" />} />
+            <Route path="payment" element={<Payment title="Due" />} />
+            <Route path="shops" element={<Shops title="Due" />} />
+            <Route path="shop/:id" element={<ShopProfile title="Due" />} />
+            <Route path="profile" element={<Profile title="Due" />} />
+          </Route>
+
+        </Routes>
+      </div>
+
   )
 }
