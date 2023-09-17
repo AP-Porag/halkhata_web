@@ -1,15 +1,13 @@
 import React from 'react'
+import Breadcrumb from "../../components/common/Breadcrumb.jsx";
 
 export default function Dashboard() {
   return (
     <div>
       <div className="grid grid-cols-5 gap-4">
-        <div class="col-span-1 bg-slate-400">L</div>
-        <div class="col-span-3 bg-slate-600">
-        <div className="px-4">
-      <div
-        className="
-          flex
+        <div className="col-span-1 hidden md:block">
+            <div className="px-4">
+                <div className="flex
           justify-center
           items-center
           bg-white
@@ -24,18 +22,16 @@ export default function Dashboard() {
       via-purple-300
       to-indigo-400
         "
-      >
-        <h1 className="text-2xl font-medium">Advertise</h1>
-      </div>
-      </div>
+                >
+                    <h1 className="text-2xl font-medium text-white">Advertise</h1>
+                </div>
+            </div>
         </div>
-        <div class="col-span-1 bg-slate-700">R</div>
-      </div>
-      
-      <div className="px-4">
-      <div
-        className="
-          flex
+        <div className="col-span-5 md:col-span-3">
+            <div className="px-4 py-8">
+                <Breadcrumb/>
+                <div className="">
+                    <div className="flex shadow
           justify-center
           items-center
           bg-white
@@ -50,9 +46,74 @@ export default function Dashboard() {
       via-purple-300
       to-indigo-400
         "
-      >
-        <h1 className="text-2xl font-medium">Dashboard component</h1>
-      </div>
+                    >
+                        <h1 className="text-2xl font-medium text-white">Advertise</h1>
+                    </div>
+                </div>
+                <div className="">
+                    <div className="
+                shadow
+              flex
+              justify-center
+              items-center
+              bg-white
+              mx-auto
+              max-w-4xl
+              rounded-lg
+              my-8
+              p-16
+              antialiased
+            "
+                    >
+                        <h1 className="text-2xl font-medium">Dashboard view</h1>
+                    </div>
+                </div>
+                <div className="block sm:hidden">
+                    <div className="flex
+                shadow
+          justify-center
+          items-center
+          bg-white
+          mx-auto
+          max-w-4xl
+          rounded-lg
+          my-8
+          p-16
+          antialiased
+      bg-gradient-to-r
+      from-pink-300
+      via-purple-300
+      to-indigo-400
+        "
+                    >
+                        <h1 className="text-2xl font-medium text-white">Advertise</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="col-span-1 hidden md:block">
+            <div className="px-4">
+                <div className="flex
+                shadow
+          justify-center
+          items-center
+          bg-white
+          mx-auto
+          max-w-4xl
+          rounded-lg
+          my-8
+          p-16
+          antialiased
+      bg-gradient-to-r
+      from-pink-300
+      via-purple-300
+      to-indigo-400
+        "
+                >
+                    <h1 className="text-2xl font-medium text-white">Advertise</h1>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   )
