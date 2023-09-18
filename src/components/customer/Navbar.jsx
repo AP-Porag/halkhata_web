@@ -1,24 +1,27 @@
 import React from 'react'
+import {NavLink} from "react-router-dom";
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [flyer, setFlyer] = React.useState(false);
   const [flyerTwo, setFlyerTwo] = React.useState(false);
+  function logOut() {
+    console.log('Logout button pressed!!')
+  }
 
   return (
-      <>
+      <div>
         {/* This example requires Tailwind CSS v2.0+ */}
         <div className="relative bg-white">
           <div className="max-w-full mx-auto px-4 sm:px-6">
             <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
               <div className="flex justify-start lg:w-0 lg:flex-1">
-                <a href="#">
-                  <span className="sr-only">Workflow</span>
+                <NavLink to="/home">
                   <img
                       className="h-8 w-auto sm:h-10"
                       src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                       alt=""
                   />
-                </a>
+                </NavLink>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
                 <button
@@ -46,9 +49,18 @@ export default function Navbar() {
                 </button>
               </div>
               <nav className="hidden md:flex space-x-10">
-                <span className="cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900">
-                  Pricing
-                </span>
+                <NavLink to="/home" className="cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900">
+                  Home
+                </NavLink>
+                <NavLink to="/due" className="cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900">
+                  Due
+                </NavLink>
+                <NavLink to="/payment" className="cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900">
+                  Payment
+                </NavLink>
+                <NavLink to="/shops" className="cursor-pointer text-base font-medium text-gray-500 hover:text-gray-900">
+                  Shops
+                </NavLink>
               </nav>
               <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                 <div className="relative mr-5">
@@ -86,16 +98,7 @@ export default function Navbar() {
                       />
                     </svg>
                   </button>
-                  {/*
-            'More' flyout menu, show/hide based on flyout menu state.
-
-            Entering: "transition ease-out duration-200"
-              From: "opacity-0 translate-y-1"
-              To: "opacity-100 translate-y-0"
-            Leaving: "transition ease-in duration-150"
-              From: "opacity-100 translate-y-0"
-              To: "opacity-0 translate-y-1"
-          */}{" "}
+                  {" "}
                   <div
                       onMouseLeave={() => setFlyerTwo(false)}
                       className={
@@ -111,7 +114,7 @@ export default function Navbar() {
                         </div>
                       <div className="relative grid gap-6 bg-white px-4 py-6 sm:gap-8 sm:p-8">
 
-                        <span className="-m-3 py-2 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <NavLink to="/profile" className="-m-3 py-2 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer">
                           {/* Heroicon name: outline/support */}
                           <svg
                               className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -133,9 +136,9 @@ export default function Navbar() {
                               Your Profile
                             </p>
                           </div>
-                        </span>
+                        </NavLink>
 
-                        <span className="-m-3 py-2 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer">
+                        <span onClick={logOut} className="-m-3 py-2 flex items-start rounded-lg hover:bg-gray-50 cursor-pointer">
                           {/* Heroicon name: outline/support */}
                           <svg
                               className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -166,17 +169,6 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          {/*
-    Mobile menu, show/hide based on mobile menu state.
-
-    Entering: "duration-200 ease-out"
-      From: ""
-      To: ""
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  */}
-
           <div
               className={
                 open
@@ -222,8 +214,8 @@ export default function Navbar() {
                 </div>
                 <div className="mt-6">
                   <nav className="grid gap-y-8">
-                    <a
-                        href="#"
+                    <NavLink
+                        to="/home"
                         className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
                       {/* Heroicon name: outline/chart-bar */}
@@ -243,11 +235,11 @@ export default function Navbar() {
                         />
                       </svg>
                       <span className="ml-3 text-base font-medium text-gray-900">
-                      Analytics
+                      Home
                     </span>
-                    </a>
-                    <a
-                        href="#"
+                    </NavLink>
+                    <NavLink
+                        to="/due"
                         className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
                       {/* Heroicon name: outline/cursor-click */}
@@ -267,11 +259,11 @@ export default function Navbar() {
                         />
                       </svg>
                       <span className="ml-3 text-base font-medium text-gray-900">
-                      Engagement
+                      Due
                     </span>
-                    </a>
-                    <a
-                        href="#"
+                    </NavLink>
+                    <NavLink
+                        to="/payment"
                         className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
                       {/* Heroicon name: outline/shield-check */}
@@ -291,11 +283,11 @@ export default function Navbar() {
                         />
                       </svg>
                       <span className="ml-3 text-base font-medium text-gray-900">
-                      Security
+                      Payment
                     </span>
-                    </a>
-                    <a
-                        href="#"
+                    </NavLink>
+                    <NavLink
+                        to="/shops"
                         className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                     >
                       {/* Heroicon name: outline/view-grid */}
@@ -315,39 +307,15 @@ export default function Navbar() {
                         />
                       </svg>
                       <span className="ml-3 text-base font-medium text-gray-900">
-                      Integrations
+                      Shops
                     </span>
-                    </a>
-                    <a
-                        href="#"
-                        className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                    >
-                      {/* Heroicon name: outline/refresh */}
-                      <svg
-                          className="flex-shrink-0 h-6 w-6 text-indigo-600"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          aria-hidden="true"
-                      >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                        />
-                      </svg>
-                      <span className="ml-3 text-base font-medium text-gray-900">
-                      Automations
-                    </span>
-                    </a>
+                    </NavLink>
                   </nav>
                 </div>
               </div>
               <div className="py-6 px-5 space-y-6">
                 <div>
-                  <button
+                  <button onClick={logOut}
                       className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                   >
                     Logout
@@ -357,6 +325,6 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-      </>
+      </div>
   );
 }
